@@ -1,4 +1,5 @@
 class AvatarsController < ApplicationController
-  def index
-  end
+ def index
+    @avatars = Image.all
+ end
 end
