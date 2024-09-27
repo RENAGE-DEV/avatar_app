@@ -1,5 +1,36 @@
-<h1>Mostrando todos los avatars</h1>
+<div class="container mt-5">
+  
+  <h1 class="text-center mb-4 display-4 fw-bold" style="color: #fff; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); background: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 15px;">
+    Mostrando todos los avatars
+  </h1>
+  
+  
+  <div id="avatarCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <% @avatars.each_with_index do |avatar, index| %>
+        <div class="carousel-item <%= 'active' if index == 0 %>">
+          <img src="<%= avatar.url_image %>" class="d-block w-100" alt="Avatar" style="max-height: 400px; object-fit: cover;">
+        </div>
+      <% end %>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#avatarCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#avatarCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
 
-<% @avatars.each do |avatar| %>
-    <%= image_tag "#{avatar.url_image}" %>
-<% end%>
+
+<style>
+  body {
+    background: linear-gradient(135deg, #f06, #4a90e2); /* Gradient background */
+    color: #fff;
+  }
+  .carousel-item img {
+    border-radius: 15px;
+  }
+</style>
